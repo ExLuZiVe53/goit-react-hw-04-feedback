@@ -18,30 +18,6 @@ export class App extends Component {
     });
   };
 
-  // changeOfStateGood = () => {
-  //   this.setState(prevState => {
-  //     return {
-  //       good: prevState.good + 1,
-  //     };
-  //   });
-  // };
-
-  // changeOfStateNeutral = () => {
-  //   this.setState(prevState => {
-  //     return {
-  //       neutral: prevState.neutral + 1,
-  //     };
-  //   });
-  // };
-
-  // changeOfStateBad = () => {
-  //   this.setState(prevState => {
-  //     return {
-  //       bad: prevState.bad + 1,
-  //     };
-  //   });
-  // };
-
   countTotalFeedback = () => {
     return Object.values(this.state).reduce(
       (accumulator, currentValue) => accumulator + currentValue,
@@ -58,17 +34,7 @@ export class App extends Component {
     const GoodPercentFeedback = this.countPositiveFeedbackPercentage();
 
     return (
-      <div
-        // style={{
-        //   height: '100vh',
-        //   display: 'block',
-        //   justifyContent: 'center',
-        //   alignItems: 'center',
-        //   fontSize: 40,
-        //   color: '#010101',
-        // }}
-        className={styles.Wrapper}
-      >
+      <div className={styles.Wrapper}>
         <h2>Please leave feedback</h2>
         <FeedbackOptions
           options={Object.keys(this.state)}
