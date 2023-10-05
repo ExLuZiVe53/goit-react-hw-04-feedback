@@ -1,0 +1,8 @@
+.ContainerButtons {
+  display: flex;
+  gap: 20px;
+}
+
+.ButtonOption {
+  padding: 10px 20px;
+}

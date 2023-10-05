@@ -1,0 +1,23 @@
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 30px;
+
+  padding-top: 40px;
+
+  background: #5a3f37; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c7744,
+    #5a3f37
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c7744,
+    #5a3f37
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
