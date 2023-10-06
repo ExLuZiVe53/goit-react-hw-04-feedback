@@ -13,42 +13,44 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const onLeaveFeedbackGood = good => {
-    setGood(good + 1);
+  const handleClick = option => {
+    switch (option) {
+      case 'good':
+        setGood(prevGood => prevGood + 1);
+        break;
+
+      case 'neutral':
+        setNeutral(prevNeutral => prevNeutral + 1);
+        break;
+
+      case 'bad':
+        setBad(prevBad => prevBad + 1);
+        break;
+
+      default:
+        throw new Error('Invalid option');
+    }
   };
 
-  const onLeaveFeedbackNeutral = neutral => {
-    setNeutral(neutral + 1);
-  };
-
-  const onLeaveFeedbackBad = bad => {
-    setBad(bad + 1);
-  };
-
-  const countTotalFeedback = () => {
-    return Object.values(this.state).reduce(
-      (accumulator, currentValue) => accumulator + currentValue,
-      0
-    );
-  };
+  const Total = good + neutral + bad;
+  const options = ['good', 'neutral', 'bad'];
 
   const countPositiveFeedbackPercentage = () => {
-    return Math.round((this.state.good / this.countTotalFeedback()) * 100);
+    return Math.round((good / Total) * 100);
   };
+
+  const GoodPercentFeedback = countPositiveFeedbackPercentage();
 
   return (
     <div className={styles.Wrapper}>
       <h2>Please leave feedback</h2>
-      <FeedbackOptions
-        options={Object.keys(good, neutral, bad)}
-        onLeaveFeedback={onLeaveFeedback}
-      />
+      <FeedbackOptions options={options} handleClick={handleClick} />
       <h2>Statistics</h2>
       {Total ? (
         <Statistics
-          good={state.good}
-          neutral={state.neutral}
-          bad={state.bad}
+          good={good}
+          neutral={neutral}
+          bad={bad}
           total={Total}
           positivePercentage={GoodPercentFeedback}
         />
